@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('main', [
+        'reasons' => DB::table('reasons')->paginate(3)
+    ]);
+})->name('main');
+
+Route::get('razoes', function () {
+    return view('razoes', [
+        'reasons' => DB::table('reasons')->paginate(3)
+    ]);
+})->name('razoes');
