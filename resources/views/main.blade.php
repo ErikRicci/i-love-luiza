@@ -1,9 +1,20 @@
 @extends('layouts.app')
 
-@section('title', 'Home')
+@section('title', 'Página Inicial')
 
 @section('content')
-    <center>
-        TOASTY
-    </center>
+
+<center>
+    <label style="font-size: 1rem">
+        EU AMO UMA MULHER! <br> O NOME DELA?
+    </label>
+    <h1 style="font-family: Arial, Helvetica, sans-serif">
+        <b>LUIZA 💖💖💖</b>
+    </h1>
+</center>
+
+{{-- @livewire('show-posts')
+
+@livewireScripts --}}
+
 @endsection

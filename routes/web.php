@@ -15,9 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('main', [
-        'reasons' => DB::table('reasons')->paginate(3)
-    ]);
+    return view('main');
 })->name('main');
 
 Route::get('razoes', function () {
@@ -25,3 +23,13 @@ Route::get('razoes', function () {
         'reasons' => DB::table('reasons')->paginate(3)
     ]);
 })->name('razoes');
+
+Route::get('quatromeses', function () {
+    return view('jogos.quatromeses');
+})->name('quatromeses');
+
+Route::get('foto-aleatoria', function () {
+    return view('photo', [
+        'photo' => DB::table('photos')->inRandomOrder()->first()
+    ]);
+})->name('foto-aleatoria');

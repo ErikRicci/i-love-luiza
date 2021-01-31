@@ -4,7 +4,7 @@
 
 @section('content')
     <center>
-        <div style="width: 50vw; margin-top: 5vh; background:rgb(173, 226, 214); padding: 12px; border-radius: 12px">
+        <div style="width: 80vw; margin-top: 5vh; background:rgb(173, 226, 214); padding: 12px; border-radius: 12px">
             @foreach ($reasons as $reason)
             <div class="card text-center">
                 <div class="card-header">
@@ -16,7 +16,7 @@
                 <a href="#" class="btn btn-secondary disabled" disabled>LINK INDISPONÍVEL</a>
                 </div>
                 <div class="card-footer text-muted">
-                {{$reason->ts}}
+                {{date('d/m/Y', strtotime($reason->ts))}}
                 </div>
             </div>
                 <br>
