@@ -14,9 +14,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('404', function () {
+    abort(404);
+})->name('404');
+
 Route::get('/', function () {
-    return view('main');
+    return view('main', [
+        'posts' => DB::table('posts')->paginate(5)
+    ]);
 })->name('main');
+
+Route::get('post/{id}', function ($id) {
+
+    $post = DB::table('posts')->find($id);
+    $post->category = DB::table('categories')->find($post->category_id)->name;
+    unset($post->category_id);
+
+    return view('post', [
+        'post' => $post
+    ]);
+})->name('post/{id}');
 
 Route::get('razoes', function () {
     return view('razoes', [
